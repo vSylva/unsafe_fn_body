@@ -1,8 +1,19 @@
-//! ```rust
-//! #[unsafe_fn_body::unsafe_fn_body]
-//! fn unsafe_fn_body(){
-//! }
-//! ```
+#![doc = r#"
+```rust
+#[unsafe_fn_body::unsafe_fn_body]
+fn unsafe_fn(){
+    // ...
+}
+```
+
+```rust
+fn unsafe_fn(){
+    unsafe{
+        // ...
+    }
+}
+```
+"#]
 
 use proc_macro::TokenStream;
 use quote::quote;

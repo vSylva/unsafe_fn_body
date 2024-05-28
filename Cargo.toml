@@ -1,6 +1,6 @@
 [package]
 name = "unsafe_fn_body"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["vSylva"]
 edition = "2021"
 description = "Wrap the function body in an unsafe block using attribute macros"
@@ -14,8 +14,19 @@ proc-macro = true
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
-targets = ["x86_64-pc-windows-msvc", "i686-pc-windows-msvc"]
+targets = [
+    "x86_64-pc-windows-msvc",
+    "i686-pc-windows-msvc",
+    "x86_64-pc-windows-gnu",
+    "i686-pc-windows-gnu",
+]
+
 
 [dependencies]
-quote = "1.0.35"
-syn = { version = "2.0.49", features = ["full"] }
+quote = { version = "1.0.36", default-features = false }
+syn = { version = "2.0.66", default-features = false, features = [
+    "proc-macro",
+    "parsing",
+    "printing",
+    "full",
+] }
